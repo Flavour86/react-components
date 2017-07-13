@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import Image from '../src/image'
-import Spinner from '../src/spinner'
+import Image from '../src/image/index'
+import Spinner from '../src/spinner/index'
 
 describe('<Image />', () => {
 

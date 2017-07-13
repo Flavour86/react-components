@@ -5,7 +5,7 @@
  */
 
 import React, { Component, PropTypes } from 'react'
-import ReactSpinner from './spinner'
+import ReactSpinner from '../spinner/index'
 
 export default class ImageX extends Component {
   static propTypes = {
