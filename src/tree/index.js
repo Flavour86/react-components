@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import styles from './styles/tree'
+import styles from './styles/tree.css'
 import Tree from 'rc-tree'
 import OpenAnimation from './openAnimation'
 const TreeNode = Tree.TreeNode

@@ -1,6 +1,6 @@
 var path = require('path')
-var fs = require('fs')
 var webpack = require('webpack')
+var cssnano = require('cssnano')
 
 module.exports = {
   entry: './src/index.js',
@@ -29,12 +29,53 @@ module.exports = {
         ],
         presets: ['es2015', 'react', 'stage-0']
       }
+    }, {
+      test: /\.css$/,
+      loaders: [
+        'style',
+        'css?sourceMap&-minimize&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+        'postcss'
+      ]
+    }, {
+      test: /\.woff(\?.*)?$/,
+      loader: 'url?limit=10000&mimetype=application/font-woff'
+    }, {
+      test: /\.woff2(\?.*)?$/,
+      loader: 'url?limit=10000&mimetype=application/font-woff2'
+    }, {
+      test: /\.otf(\?.*)?$/,
+      loader: 'file?limit=10000&mimetype=font/opentype'
+    }, {
+      test: /\.ttf(\?.*)?$/,
+      loader: 'url?limit=10000&mimetype=application/octet-stream'
+    }, {
+      test: /\.eot(\?.*)?$/,
+      loader: 'file'
+    }, {
+      test: /\.svg(\?.*)?$/,
+      loader: 'url?limit=10000&mimetype=image/svg+xml'
+    }, {
+      test: /\.(gif|png|jpg)$/,
+      loader: 'url?limit=8192'
     }],
     resolve: {
       extensions: ['', '.js', '.jsx', '.json']
     }
   },
-
+  postcss: [
+    cssnano({
+      autoprefixer: {
+        add: true,
+        remove: true,
+        browsers: ['last 2 versions']
+      },
+      discardComments: {
+        removeAll: true
+      },
+      safe: true,
+      sourcemap: true
+    })
+  ],
   externals: [{
     'react': {
       root: 'React',
