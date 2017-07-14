@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Tree from '../../src/tree'
+import {Tree} from '../../lib'
 export default class TreeDemo extends Component {
   getTreeData() {
     const treeData = this.refs.tree.getValue()

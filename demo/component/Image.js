@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Image} from '../../umd/nd-rc'
+import {Image} from '../../lib'
 
 export default class ImageDemo extends Component {
   constructor(props) {

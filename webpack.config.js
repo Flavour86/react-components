@@ -59,7 +59,7 @@ module.exports = {
       loader: 'url?limit=8192'
     }],
     resolve: {
-      extensions: ['', '.js', '.jsx', '.json']
+      extensions: ['', '.js', '.jsx', '.json', '.css']
     }
   },
   postcss: [

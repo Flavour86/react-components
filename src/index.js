@@ -1,10 +1,13 @@
-import ReactDOM from 'react-dom'
-import Image from './image/index'
-import Tree from './tree/index'
-import ReactSpinner from './spinner/index'
+let dataProvider = {}
+const request = require.context('./', true, /\/.*\/index.*\.js$/)
+request.keys().forEach(path => {
+  const module = request(path)
+  path = path.replace(/(\.\/|\/index\.js)/gi, '').split('/')
+  const fileName = path[0].replace(/^[a-z]/, (match) => {
+    return match.toUpperCase()
+  })
 
-export default {
-  Image,
-  Tree,
-  ReactSpinner
-}
+  dataProvider[fileName] = module
+})
+
+export default dataProvider
