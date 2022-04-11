@@ -12,5 +12,6 @@ test/coverage
 *.sublime-project
 *.sublime-workspace
 
-# OS files
+# OS files111
 .DS_STORE
+.history
